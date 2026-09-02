@@ -678,5 +678,155 @@ footer .logo { font-size: 32px; }
 }
 
 @media (max-width: 760px) {
+  .stats {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .stats .stat {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .split-copy {
+    text-align: center;
+    align-items: center;
+  }
+
+  .split-copy h2,
+  .split-copy > p {
+    text-align: center;
+  }
+
+  .about > div:first-child {
+    text-align: center;
+  }
+
+  .about > div:first-child h2 {
+    text-align: center;
+  }
+
+  .about > div:first-child .actions {
+    justify-content: center;
+  }
+
+  .about .copy {
+    text-align: center;
+  }
+
+  .about .copy p {
+    text-align: center;
+  }
+
+  .faq > div:first-child {
+    text-align: center;
+  }
+
+  .faq > div:first-child .faq-help-button,
+  .faq-attendance {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq-item button {
+    position: relative;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .faq-item button svg {
+    position: absolute;
+    right: 0;
+  }
+
+  .faq-item p {
+    text-align: center;
+  }
+
+  .location-copy {
+    width: 100%;
+    text-align: center !important;
+  }
+
+  .location-copy h2,
+  .location-copy > p {
+    text-align: center !important;
+  }
+
+  .location-copy .contact-list {
+    align-items: center;
+    width: 100%;
+  }
+
+  .location-copy .contact-list a,
+  .location-copy .contact-list > div {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .location-copy .contact-list span {
+    text-align: center;
+  }
+
+  .location-copy .actions {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .location-copy .actions .button {
+    min-width: 290px;
+  }
+
+  .footer-grid > div:first-child {
+    text-align: center;
+  }
+
+  .footer-grid > div:first-child .social-links {
+    justify-content: center;
+  }
+
+  .services .service {
+    align-items: center;
+    text-align: center;
+  }
+
+  .services .service > div {
+    align-items: center;
+  }
+
+  .services .service h3,
+  .services .service a {
+    text-align: center;
+  }
+
+  .hero-content .lead {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .hero-content .actions {
+    justify-content: center;
+  }
+
+  .hero-content .phone {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 760px) {
   .split-copy { padding-top: 28px; }
+}
+
+@media (max-width: 760px) {
+  .nav .logo > span {
+    font-size: 24px !important;
+  }
+
+  .nav .logo small {
+    font-size: 15px !important;
+  }
 }
