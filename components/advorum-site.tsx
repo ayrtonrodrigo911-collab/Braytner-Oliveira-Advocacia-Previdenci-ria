@@ -210,7 +210,6 @@ function FadeIn({ children, delay = 0, className = '', style, direction = 'up' }
 }
 
 export default function AdvorumSite() {
-  const [menu, setMenu] = useState(false)
   const [open, setOpen] = useState<number | null>(null)
   const [aboutImageIndex, setAboutImageIndex] = useState(2)
   const [emblaRef] = useEmblaCarousel(
@@ -253,36 +252,17 @@ export default function AdvorumSite() {
       <div className="nav-inner">
         <a href="#top" className="logo"><span>Braytner Oliveira</span><br /><small>Advocacia Previdenciária</small></a>
         <div className="nav-links">
-          <a href="#about">Sobre mim</a>
-          <a href="#services">Áreas de Atuação</a>
-          <a href="#testimonials">Depoimentos</a>
+          <a href="#about">Sobre nós</a>
+          <a href="#services">Benefícios</a>
           <a href="#faq">Dúvidas</a>
+          <a href="#location">Contato</a>
           <Button>Entre em contato</Button>
         </div>
-        <button className="menu-btn" onClick={() => setMenu(!menu)} aria-label="Abrir menu">
-          {menu ? <X /> : <Menu />}
-        </button>
       </div>
-      <AnimatePresence>
-        {menu && (
-          <motion.div
-            className="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <a href="#about" onClick={() => setMenu(false)}>Sobre mim</a>
-            <a href="#services" onClick={() => setMenu(false)}>Áreas de Atuação</a>
-            <a href="#faq" onClick={() => setMenu(false)}>Dúvidas</a>
-            <Button>Entre em contato</Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.nav>
 
     {/* ── Hero ───────────────────────────────────────────────────────── */}
-    <section id="top" className="hero">
+    <section id="top" className="hero" aria-label="Apresentação do escritório">
       <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true">
         <source src={HERO_VIDEO} type="video/mp4" />
       </video>
@@ -294,7 +274,7 @@ export default function AdvorumSite() {
         <p className="lead">Atuação especializada na defesa dos direitos e benefícios previdenciários, com conhecimento técnico, estratégia e atendimento humanizado.</p>
         <div className="actions">
           <Button>Fale com um especialista <ArrowRight size={16} /></Button>
-          <a className="phone" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><Phone size={17} /> +55 87 9100-1553</a>
+          <a className="phone" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Falar com Dr. Braytner pelo WhatsApp"><Phone size={17} /> +55 87 9100-1553</a>
         </div>
       </FadeIn>
 
@@ -304,7 +284,7 @@ export default function AdvorumSite() {
     </section>
 
     {/* ── Serviços (Grid 3×3) ──────────────────────────────────────── */}
-    <section id="services" className="services">
+    <section id="services" className="services" aria-label="Benefícios Previdenciários">
       <FadeIn>
         <header>
           <p className="eyebrow">ÁREAS DE ATUAÇÃO</p>
@@ -339,7 +319,7 @@ export default function AdvorumSite() {
     </section>
 
     {/* ── Split (imagem + texto) ─────────────────────────────────────── */}
-    <section className="split">
+    <section id="about" className="split" aria-label="Sobre o advogado">
       <FadeIn direction="left" className="split-image">
         <div className="split-photo-stage">
           {ABOUT_IMAGES.map((image, index) => (
@@ -350,7 +330,7 @@ export default function AdvorumSite() {
               transition={{ duration: 1.4, ease: 'easeInOut' }}
               style={{ width: '96%', height: '100%' }}
             >
-              <img className={`split-photo ${index === 2 ? 'split-photo-landscape' : ''}`} src={image} alt="Dr. Braytner Oliveira em seu escritório" />
+              <img className={`split-photo ${index === 2 ? 'split-photo-landscape' : ''}`} src={image} alt="Dr. Braytner César Oliveira Mélo - Advogado Previdenciário" loading="lazy" />
             </motion.div>
           ))}
         </div>
@@ -358,7 +338,7 @@ export default function AdvorumSite() {
       </FadeIn>
       <FadeIn direction="right" className="split-copy" delay={0.15}>
         <p className="eyebrow">QUEM SOMOS?</p>
-        <h2><span className="about-title-kicker">UMA ADVOCACIA QUE</span><br />TRANSFORMA CONHECIMENTO EM RESULTADOS</h2>
+        <h2><span className="about-title-kicker">UMA ADVOCACIA QUE TRANSFORMA</span><br />CONHECIMENTO EM RESULTADOS</h2>
         <p>O escritório Braytner Oliveira Advocacia Previdenciária nasceu do compromisso de oferecer uma atuação jurídica de excelência, pautada no conhecimento técnico, na ética e, acima de tudo, na valorização de cada história que nos é confiada.</p>
         <p>À frente do escritório está seu sócio fundador, advogado especializado em Direito Previdenciário, com uma trajetória de mais de 8 anos de advocacia construída sobre constante aperfeiçoamento profissional e dedicação à defesa dos direitos de seus clientes.</p>
         <p>Pós-Graduado em Direito Previdenciário e também em Direito Penal e Processual Penal, exerce atualmente a função de Presidente da Comissão de Direito Previdenciário da OAB Subseção Pesqueira/PE, tendo atuado anteriormente como Vice-Presidente da Comissão de Direito Eleitoral da mesma Subseção.</p>
@@ -367,7 +347,7 @@ export default function AdvorumSite() {
     </section>
 
     {/* ── Por que trabalhar comigo ────────────────────────────────────── */}
-    <section id="about" className="about">
+    <section id="why-us" className="about">
       <FadeIn direction="left">
         <div>
           <p className="eyebrow">POR QUE TRABALHAR COM NOSSO ESCRITÓRIO</p>
@@ -386,7 +366,7 @@ export default function AdvorumSite() {
     </section>
 
     {/* ── Depoimentos ────────────────────────────────────────────────── */}
-    <section id="testimonials" className="testimonials">
+    <section id="testimonials" className="testimonials" aria-label="Depoimentos de clientes">
       <FadeIn>
         <header>
           <p className="eyebrow">Depoimentos</p>
@@ -433,7 +413,7 @@ export default function AdvorumSite() {
     </FadeIn>
 
     {/* ── FAQ ────────────────────────────────────────────────────────── */}
-    <section id="faq" className="faq">
+    <section id="faq" className="faq" aria-label="Dúvidas frequentes">
       <FadeIn>
         <div>
           <p className="eyebrow">DÚVIDAS FREQUENTES</p>
@@ -473,7 +453,7 @@ export default function AdvorumSite() {
     </section>
 
     {/* ── Localização ────────────────────────────────────────────────── */}
-    <section id="location" className="location">
+    <section id="location" className="location" aria-label="Localização do escritório">
       <FadeIn direction="left" className="location-copy">
         <p className="eyebrow">LOCALIZAÇÃO</p>
         <h2>Venha nos visitar ou fale conosco pelo WhatsApp</h2>
@@ -506,7 +486,7 @@ export default function AdvorumSite() {
         </div>
       </FadeIn>
       <FadeIn direction="right" delay={0.2} className="map-wrap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15544!2d-36.7731!3d-8.4779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7061e1234567890%3A0xabcdef1234567890!2sAlagoinha%2C%20PE%2C%2055260-000!5e0!3m2!1spt-BR!2sbr!4v1698765432100!5m2!1spt-BR!2sbr" title="Localização, Braytner Oliveira Advocacia" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15544!2d-36.7731!3d-8.4779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7061e1234567890%3A0xabcdef1234567890!2sAlagoinha%2C%20PE%2C%2055260-000!5e0!3m2!1spt-BR!2sbr!4v1698765432100!5m2!1spt-BR!2sbr" title="Localização do escritório Braytner Oliveira em Alagoinha PE" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
       </FadeIn>
     </section>
 
@@ -540,7 +520,7 @@ export default function AdvorumSite() {
           <a href="#about">Sobre nós</a>
           <a href="#services">Benefícios</a>
           <a href="#faq">Dúvidas</a>
-          <a href="#contact">Contato</a>
+          <a href="#location">Contato</a>
         </div>
         <div>
           <b>Contato</b>
